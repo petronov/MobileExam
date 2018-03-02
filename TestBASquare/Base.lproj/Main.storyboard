@@ -19,9 +19,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="hNe-EO-b46">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="hNe-EO-b46">
                                 <rect key="frame" x="0.0" y="20" width="375" height="647"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cellReuseIdentifier" id="jFM-8B-CBU">
@@ -40,6 +39,12 @@
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="hNe-EO-b46" firstAttribute="leading" secondItem="quy-72-NK2" secondAttribute="leading" id="2cw-ao-OtD"/>
+                            <constraint firstItem="hNe-EO-b46" firstAttribute="bottom" secondItem="quy-72-NK2" secondAttribute="bottom" id="6l3-PH-RpQ"/>
+                            <constraint firstItem="hNe-EO-b46" firstAttribute="trailing" secondItem="quy-72-NK2" secondAttribute="trailing" id="KFg-gu-oU5"/>
+                            <constraint firstItem="hNe-EO-b46" firstAttribute="top" secondItem="quy-72-NK2" secondAttribute="top" id="unl-Xq-Yoy"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="quy-72-NK2"/>
                     </view>
                     <connections>
@@ -90,7 +95,6 @@
                                     <constraint firstItem="HSd-oW-mAG" firstAttribute="top" secondItem="8BO-EZ-GrR" secondAttribute="bottom" constant="10" id="LJP-7L-D0t"/>
                                     <constraint firstAttribute="trailing" secondItem="8BO-EZ-GrR" secondAttribute="trailing" id="TO9-1b-ORv"/>
                                     <constraint firstAttribute="trailing" secondItem="HSd-oW-mAG" secondAttribute="trailing" id="b3B-Nh-7UE"/>
-                                    <constraint firstItem="HSd-oW-mAG" firstAttribute="centerX" secondItem="Pnh-M2-ywr" secondAttribute="centerX" id="x37-pA-hKi"/>
                                     <constraint firstItem="8BO-EZ-GrR" firstAttribute="centerY" secondItem="Pnh-M2-ywr" secondAttribute="centerY" id="yLf-73-p2W"/>
                                     <constraint firstAttribute="trailing" secondItem="Ug1-tL-9da" secondAttribute="trailing" constant="-0.5" id="yxG-tG-dFo"/>
                                 </constraints>
