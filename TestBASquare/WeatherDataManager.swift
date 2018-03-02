@@ -59,10 +59,15 @@ class WeatherDataManager
                         
                         // TODO: use appropriate way to get string
                         let tempatureValue = Int(round(weatherItem!.celsius.currentTemp))
-                        let tempatureStr: String = String(tempatureValue) + " ℃"
+                        let tempatureStr = String(tempatureValue) + " ℃"
+                        
+                        let cloudinessValue = Int(weatherItem!.cloudiness)
+                        
                         let dictionary: [String: Any] = ["city": city,
                                                          "temperatureCelsiusStr": tempatureStr,
-                                                         "temperatureCelsiusValue": tempatureValue]
+                                                         "temperatureCelsiusValue": tempatureValue,
+                                                         "cloudinessValue": cloudinessValue]
+                        
                         NotificationCenter.default.post(name: Notification.Name(rawValue: WeatherDateNotification), object: nil, userInfo: dictionary)
                     }
                 }

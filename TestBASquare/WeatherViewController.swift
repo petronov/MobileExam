@@ -22,8 +22,9 @@ class ContentViewController: UIViewController
     
     var cityName: String?
     
-    @IBOutlet weak var lbTemperature: UILabel!
-    @IBOutlet weak var lbCityName: UILabel!
+    @IBOutlet weak var temperatureLabel: UILabel!
+    @IBOutlet weak var cityNameLabel: UILabel!
+    @IBOutlet weak var cloudinessValueLabel: UILabel!
     
     //---------------------------------------------------------------------------------------------
     
@@ -44,7 +45,7 @@ class ContentViewController: UIViewController
     override func viewDidLoad()
     {
         super.viewDidLoad()
-        self.lbCityName.text = self.cityName ?? ""
+        self.cityNameLabel.text = self.cityName ?? ""
     }
     
     //---------------------------------------------------------------------------------------------
@@ -189,22 +190,25 @@ class WeatherViewController: UIViewController, UIPageViewControllerDataSource, U
     {
         if let validCity = notification.userInfo!["city"] as? String,
             let temperatureStr = notification.userInfo!["temperatureCelsiusStr"] as? String,
-              let temperatureValue = notification.userInfo!["temperatureCelsiusValue"] as? Int
+              let temperatureValue = notification.userInfo!["temperatureCelsiusValue"] as? Int,
+                let cloudinessValue = notification.userInfo!["cloudinessValue"] as? Int
         {
             for pageContentController in self.contentPagesVC
                     where pageContentController.cityName != nil &&
                           pageContentController.cityName! == validCity
             {
-                pageContentController.lbTemperature?.text = temperatureStr
+                pageContentController.temperatureLabel.text = temperatureStr
                 
                 if temperatureValue >= 0
                 {
-                    pageContentController.lbTemperature?.textColor = #colorLiteral(red: 0.9254902005, green: 0.4099576596, blue: 0.4245134169, alpha: 1)
+                    pageContentController.temperatureLabel.textColor = #colorLiteral(red: 0.9254902005, green: 0.4099576596, blue: 0.4245134169, alpha: 1)
                 }
                 else
                 {
-                    pageContentController.lbTemperature?.textColor = #colorLiteral(red: 0.3454634147, green: 0.5658850321, blue: 1, alpha: 1)
+                    pageContentController.temperatureLabel.textColor = #colorLiteral(red: 0.3454634147, green: 0.5658850321, blue: 1, alpha: 1)
                 }
+                
+                pageContentController.cloudinessValueLabel.text = String(cloudinessValue)
                 
                 pageContentController.view.setNeedsDisplay()
             }
@@ -220,7 +224,8 @@ class WeatherViewController: UIViewController, UIPageViewControllerDataSource, U
     {
         for pageContentController in self.contentPagesVC
         {
-            pageContentController.lbTemperature?.text = " "
+            pageContentController.temperatureLabel.text = " "
+            pageContentController.cloudinessValueLabel.text = " "
             pageContentController.view.setNeedsDisplay()
         }
         
@@ -312,7 +317,8 @@ class WeatherViewController: UIViewController, UIPageViewControllerDataSource, U
                         where pageContentController.cityName != nil &&
                               pageContentController.cityName! == selectedCityName
                     {
-                        pageContentController.lbTemperature?.text = " "
+                        pageContentController.temperatureLabel.text = " "
+                        pageContentController.cloudinessValueLabel.text = " "
                         pageContentController.view.setNeedsDisplay()
                     }
                     

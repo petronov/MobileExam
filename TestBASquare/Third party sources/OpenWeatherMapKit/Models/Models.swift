@@ -20,10 +20,23 @@ public struct WeatherItem: BasicItem {
     public let celsius: (currentTemp: Double, maxTemp: Double, minTemp: Double)
     /// Weather item's temperature values in Fahrenheit
     public let fahrenheit: (currentTemp: Double, maxTemp: Double, minTemp: Double)
+    
+    //========================================================
+    public let cloudiness: Int32
+    //========================================================
 
     init(currentTemp: Double,
          maxTemp: Double,
-         minTemp: Double) {
+         minTemp: Double,
+         //========================================================
+         cloudiness: Int32
+         //========================================================
+        )
+    {
+        //========================================================
+        self.cloudiness = cloudiness
+        //========================================================
+        
         kelvin = (currentTemp, maxTemp, minTemp)
         // TODO: probably this is not the best place for any sort of convert / calculation logic. Move it to special service
         celsius = (toCelsius(kelvin: currentTemp), toCelsius(kelvin: maxTemp), toCelsius(kelvin: minTemp))

@@ -30,9 +30,19 @@ internal class WeatherItemConverter: EntityConverter {
             let t = weatherStats["temp"] as! Double
             let tMax = weatherStats["temp_max"] as! Double
             let tMin = weatherStats["temp_min"] as! Double
+            
+            //========================================================
+            let cloudsStats = jsonData["clouds"] as! NSDictionary
+            let cloudiness = cloudsStats["all"] as! Int32
+            //========================================================
+            
             result = WeatherItem(currentTemp: t,
                     maxTemp: tMax,
-                    minTemp: tMin)
+                    minTemp: tMin,
+                    //========================================================
+                    cloudiness: cloudiness
+                    //========================================================
+                    )
         }
 
         return result
