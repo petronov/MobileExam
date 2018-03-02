@@ -146,7 +146,12 @@ class WeatherViewController: UIViewController, UIPageViewControllerDataSource, U
         // configure pageControl
         weatherView.bringSubview(toFront: pageControl)
         pageControl.numberOfPages = contentPagesVC.count
-        pageControl.currentPage = 0
+        
+        if let selectedCityNumber = self.citiesDataSource!.getSelectedCityNumber(),
+            selectedCityNumber >= 0 && selectedCityNumber < contentPagesVC.count
+        {
+            pageControl.currentPage = selectedCityNumber
+        }
  
         //------------------------------------------------------------------------------
     }
