@@ -33,7 +33,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         
         reachability.whenReachable = { _ in
             DispatchQueue.main.async {
-                debugPrint("we have access to internet")
+                debugPrint("we haven't access to internet")
             }
         }
         
@@ -54,6 +54,12 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         catch
         {
             print("Could not startnotifier")
+        }
+        
+        OpenWeatherMapKit.initialize(withAppId: "d2bd923726d8850b7677856f80cb52cd")
+        
+        OpenWeatherMapKit.instance.currentWeather(forCity: "Lviv") { (weatherItem, error) in
+            debugPrint("weather in Lviv")
         }
     }
     
