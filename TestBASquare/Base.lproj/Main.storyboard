@@ -61,43 +61,25 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Pnh-M2-ywr" userLabel="WeatherView">
                                 <rect key="frame" x="64" y="123.5" width="247.5" height="440"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="City Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g1M-p4-BwG">
-                                        <rect key="frame" x="61" y="203.5" width="126" height="33.5"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="28"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DXA-QF-b8F">
-                                        <rect key="frame" x="209" y="410" width="30" height="30"/>
-                                        <state key="normal" title="next"/>
-                                        <connections>
-                                            <action selector="nextButtonPressed:" destination="TqF-PN-H9L" eventType="touchUpInside" id="onq-8i-IFM"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ycc-Lf-Kg0">
-                                        <rect key="frame" x="9" y="410" width="31" height="30"/>
-                                        <state key="normal" title="prev"/>
-                                        <connections>
-                                            <action selector="prevButtonPressed:" destination="TqF-PN-H9L" eventType="touchUpInside" id="2B1-eT-YPx"/>
-                                        </connections>
-                                    </button>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8BO-EZ-GrR">
+                                    <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8BO-EZ-GrR" userLabel="Data Avalability Label">
                                         <rect key="frame" x="124" y="109" width="0.0" height="0.0"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="19"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="2" translatesAutoresizingMaskIntoConstraints="NO" id="Ug1-tL-9da">
+                                        <rect key="frame" x="0.0" y="403" width="248" height="37"/>
+                                        <color key="pageIndicatorTintColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="currentPageIndicatorTintColor" red="0.92502170139999995" green="0.0" blue="0.0086598270402696038" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </pageControl>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="trailing" secondItem="DXA-QF-b8F" secondAttribute="trailing" constant="8.5" id="1Cf-hw-yaG"/>
-                                    <constraint firstItem="g1M-p4-BwG" firstAttribute="centerX" secondItem="Pnh-M2-ywr" secondAttribute="centerX" id="DSL-Uy-rDm"/>
-                                    <constraint firstAttribute="bottom" secondItem="ycc-Lf-Kg0" secondAttribute="bottom" id="EaC-EQ-pYq"/>
-                                    <constraint firstItem="g1M-p4-BwG" firstAttribute="centerY" secondItem="Pnh-M2-ywr" secondAttribute="centerY" id="NEI-3G-akA"/>
-                                    <constraint firstAttribute="bottom" secondItem="DXA-QF-b8F" secondAttribute="bottom" id="S17-9S-Rw8"/>
-                                    <constraint firstItem="ycc-Lf-Kg0" firstAttribute="leading" secondItem="Pnh-M2-ywr" secondAttribute="leading" constant="9" id="h3j-BC-x3W"/>
+                                    <constraint firstItem="Ug1-tL-9da" firstAttribute="leading" secondItem="Pnh-M2-ywr" secondAttribute="leading" id="8ii-Xm-zbi"/>
+                                    <constraint firstAttribute="bottom" secondItem="Ug1-tL-9da" secondAttribute="bottom" id="LC5-7o-QFp"/>
                                     <constraint firstItem="8BO-EZ-GrR" firstAttribute="top" secondItem="Pnh-M2-ywr" secondAttribute="top" constant="109" id="jOn-FR-lXD"/>
                                     <constraint firstItem="8BO-EZ-GrR" firstAttribute="centerX" secondItem="Pnh-M2-ywr" secondAttribute="centerX" id="pwa-OV-LEL"/>
+                                    <constraint firstAttribute="trailing" secondItem="Ug1-tL-9da" secondAttribute="trailing" constant="-0.5" id="yxG-tG-dFo"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -114,9 +96,8 @@
                         </connections>
                     </view>
                     <connections>
-                        <outlet property="cityNameLabel" destination="g1M-p4-BwG" id="xuN-V0-nI6"/>
+                        <outlet property="pageControl" destination="Ug1-tL-9da" id="VBR-Sq-uqi"/>
                         <outlet property="tapGesture" destination="opq-qX-Cty" id="89L-oI-oCm"/>
-                        <outlet property="temparatureLabel" destination="8BO-EZ-GrR" id="RxP-mJ-IDk"/>
                         <outlet property="weatherView" destination="Pnh-M2-ywr" id="O2p-NS-uRj"/>
                     </connections>
                 </viewController>

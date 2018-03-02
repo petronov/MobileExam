@@ -77,7 +77,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath?
     {
-        debugPrint("city: \(cities[indexPath.row])")
+        //debugPrint("city: \(cities[indexPath.row])")
         
         self.selectedCityNumber = indexPath.row
         
@@ -87,7 +87,6 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         
         weatherVC.citiesDataSource = self
         weatherVC.view.frame = self.view.frame
-        weatherVC.cityNameLabel?.text = cities[indexPath.row]
         
         self.view.addSubview(weatherVC.view)
         weatherVC.didMove(toParentViewController: self)
@@ -126,6 +125,13 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     //---------------------------------------------------------------------------------------------
     
+    func getSelectedCityNumber() -> Int?
+    {
+        return selectedCityNumber
+    }
+    
+    //---------------------------------------------------------------------------------------------
+    
     func getPrevCityName() -> String?
     {
         if selectedCityNumber != nil &&
@@ -159,6 +165,25 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             self.selectedCityNumber = index
             self.tableView?.selectRow(at: IndexPath(row: index, section: 0), animated: true, scrollPosition: UITableViewScrollPosition.middle)
         }
+    }
+    
+    //---------------------------------------------------------------------------------------------
+    
+    func getCitiesCount() -> Int
+    {
+        return cities.count
+    }
+    
+    //---------------------------------------------------------------------------------------------
+    
+    func getCityName(for index: Int) -> String?
+    {
+        if index >= 0 && index < cities.count
+        {
+            return cities[index]
+        }
+        
+        return nil
     }
     
     //---------------------------------------------------------------------------------------------

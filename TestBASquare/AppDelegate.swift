@@ -32,13 +32,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate
         {
             reachability!.whenReachable = { _ in
                 DispatchQueue.main.async {
-                    debugPrint("we haven't access to internet")
+                    //debugPrint("we haven't access to internet")
                 }
             }
             
             reachability!.whenUnreachable = { _ in
                 DispatchQueue.main.async {
-                    debugPrint("no internet connection")
+                    //debugPrint("no internet connection")
                 }
             }
         }
@@ -112,13 +112,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate
             if reachability.isReachable
             {
                 DispatchQueue.main.async {
-                    debugPrint("we have access to internet")
+                    //debugPrint("we have access to internet")
                 }
             }
             else
             {
                 DispatchQueue.main.async {
-                    debugPrint("no internet connection")
+                    //debugPrint("no internet connection")
                 }
             }
         }

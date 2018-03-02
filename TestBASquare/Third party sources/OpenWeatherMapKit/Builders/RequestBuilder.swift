@@ -88,7 +88,7 @@ internal class RequestBuilder {
         }
 
         #if DEBUG
-            print("Generated url: '\(serviceUrl)'")
+            //print("Generated url: '\(serviceUrl)'")
         #endif
         return serviceUrl
     }
