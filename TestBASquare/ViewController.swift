@@ -5,124 +5,164 @@
 //  Created by Petro Novosad on 3/2/18.
 //  Copyright © 2018 Petro Novosad. All rights reserved.
 //
+//=============================================================================================
 
 import UIKit
 
-class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+//=============================================================================================
+//
+//     class ViewController
+//
+//=============================================================================================
 
-    let reachability = Reachability()!
+class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, CitiesDataSource
+{
+    //---------------------------------------------------------------------------------------------
+    // MARK: ViewController
+    //---------------------------------------------------------------------------------------------
     
-    @IBOutlet var tableView: UITableView?
-    
-    let cities = ["Lviv",
-        "London",
-        "Paris",
-        "New York",
-        "Sydney",
-        "Rio de Janeiro",
-        "Stockholm",
-        "Tokyo",
-        "Beijing",
-        "Cape Town"]
-    
-    override func viewDidLoad() {
+    override func viewDidLoad()
+    {
         super.viewDidLoad()
-        
-        tableView?.register(TableViewCell.self, forCellReuseIdentifier: "cellReuseIdentifier")
-        
-        
-        reachability.whenReachable = { _ in
-            DispatchQueue.main.async {
-                debugPrint("we haven't access to internet")
-            }
-        }
-        
-        reachability.whenUnreachable = { _ in
-            DispatchQueue.main.async {
-                debugPrint("no internet connection")
-            }
-        }
-        
-        NotificationCenter.default.addObserver(self,
-                                               selector: #selector(internetChanged),
-                                               name: Notification.Name.reachabilityChanged,
-                                               object: reachability)
-        
-        do {
-            try reachability.startNotifier()
-        }
-        catch
-        {
-            print("Could not startnotifier")
-        }
-        
-        OpenWeatherMapKit.initialize(withAppId: "d2bd923726d8850b7677856f80cb52cd")
-        
-        OpenWeatherMapKit.instance.currentWeather(forCity: "Lviv") { (weatherItem, error) in
-            debugPrint("weather in Lviv")
-        }
+        tableView?.register(UITableViewCell.self, forCellReuseIdentifier: "cellReuseIdentifier")
     }
     
-    @objc func internetChanged(note: Notification) {
-        let reachability = note.object as! Reachability
-        
-        if reachability.isReachable
-        {
-            DispatchQueue.main.async {
-                debugPrint("we have access to internet")
-            }
-        }
-        else
-        {
-            DispatchQueue.main.async {
-                debugPrint("no internet connection")
-            }
-        }
-    }
-
-    override func didReceiveMemoryWarning() {
+    //---------------------------------------------------------------------------------------------
+    
+    override func didReceiveMemoryWarning()
+    {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
-    // MARK: Table View code
     
-    func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
+    //---------------------------------------------------------------------------------------------
+    // MARK: Table View code
+    //---------------------------------------------------------------------------------------------
+    
+    @IBOutlet var tableView: UITableView?
+    
+    //---------------------------------------------------------------------------------------------
+    
+    func numberOfSections(in tableView: UITableView) -> Int
+    {
+        return 1    // there is only one section
     }
     
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    //---------------------------------------------------------------------------------------------
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
+    {
         return cities.count
     }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cellReuseIdentifier") as! TableViewCell
-        
-        let text = cities[indexPath.row]
-        
-        cell.textLabel?.text = text
-        
-        cell.cityName = text
-        
-        return cell
+    //---------------------------------------------------------------------------------------------
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
+    {
+        if let cell = tableView.dequeueReusableCell(withIdentifier: "cellReuseIdentifier")
+        {
+            let text = cities[indexPath.row]
+            
+            cell.textLabel?.text = text
+            
+            return cell
+        }
+        else
+        {
+            return UITableViewCell()
+        }
     }
     
-    func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
+    //---------------------------------------------------------------------------------------------
+    
+    func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath?
+    {
         debugPrint("city: \(cities[indexPath.row])")
         
-        let popOverVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "sbPopUpID") as! PopUpViewController
-        self.addChildViewController(popOverVC)
-        popOverVC.view.frame = self.view.frame
+        self.selectedCityNumber = indexPath.row
         
-        popOverVC.cityName?.text = cities[indexPath.row]
-        popOverVC.temparatureValue.text = "-10"
         
-        self.view.addSubview(popOverVC.view)
-        popOverVC.didMove(toParentViewController: self)
+        let weatherVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "weatherMainViewID") as! WeatherViewController
+        self.addChildViewController(weatherVC)
+        
+        weatherVC.citiesDataSource = self
+        weatherVC.view.frame = self.view.frame
+        weatherVC.cityNameLabel?.text = cities[indexPath.row]
+        
+        self.view.addSubview(weatherVC.view)
+        weatherVC.didMove(toParentViewController: self)
         
         return indexPath
     }
     
+    //---------------------------------------------------------------------------------------------
+    // MARK: CitiesDataSource
+    //---------------------------------------------------------------------------------------------
+    
+    var selectedCityNumber: Int?
+    
+    let cities = ["Lviv",
+                  "London",
+                  "Paris",
+                  "New York",
+                  "Sydney",
+                  "Rio de Janeiro",
+                  "Stockholm",
+                  "Tokyo",
+                  "Beijing",
+                  "Cape Town"]
+    
+    //---------------------------------------------------------------------------------------------
+    
+    func getSelectedCityName() -> String?
+    {
+        if selectedCityNumber != nil
+        {
+            return cities[selectedCityNumber!]
+        }
+        
+        return nil
+    }
+    
+    //---------------------------------------------------------------------------------------------
+    
+    func getPrevCityName() -> String?
+    {
+        if selectedCityNumber != nil &&
+            selectedCityNumber! > 0
+        {
+            return cities[selectedCityNumber! - 1]
+        }
+        
+        return nil
+    }
+    
+    //---------------------------------------------------------------------------------------------
+    
+    func getNextCityName() -> String?
+    {
+        if selectedCityNumber != nil &&
+            selectedCityNumber! < cities.count - 1
+        {
+            return cities[selectedCityNumber! + 1]
+        }
+        
+        return nil
+    }
+    
+    //---------------------------------------------------------------------------------------------
+    
+    func selectCityByName(_ cityName: String)
+    {
+        for (index, city) in cities.enumerated() where city == cityName
+        {
+            self.selectedCityNumber = index
+            self.tableView?.selectRow(at: IndexPath(row: index, section: 0), animated: true, scrollPosition: UITableViewScrollPosition.middle)
+        }
+    }
+    
+    //---------------------------------------------------------------------------------------------
 }
+
+//==== class ViewController ===================================================================
 

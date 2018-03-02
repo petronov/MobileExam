@@ -24,7 +24,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cellReuseIdentifier" id="jFM-8B-CBU" customClass="TableViewCell" customModule="TestBASquare">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cellReuseIdentifier" id="jFM-8B-CBU">
                                         <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="jFM-8B-CBU" id="yj9-fl-wwy">
@@ -50,10 +50,10 @@
             </objects>
             <point key="canvasLocation" x="136.80000000000001" y="133.5832083958021"/>
         </scene>
-        <!--Pop Up View Controller-->
+        <!--Weather View Controller-->
         <scene sceneID="kbJ-gw-sln">
             <objects>
-                <viewController storyboardIdentifier="sbPopUpID" id="TqF-PN-H9L" customClass="PopUpViewController" customModule="TestBASquare" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="weatherMainViewID" id="TqF-PN-H9L" customClass="WeatherViewController" customModule="TestBASquare" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="hYc-aW-mlC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -70,14 +70,20 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DXA-QF-b8F">
                                         <rect key="frame" x="209" y="410" width="30" height="30"/>
                                         <state key="normal" title="next"/>
+                                        <connections>
+                                            <action selector="nextButtonPressed:" destination="TqF-PN-H9L" eventType="touchUpInside" id="onq-8i-IFM"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ycc-Lf-Kg0">
                                         <rect key="frame" x="9" y="410" width="31" height="30"/>
                                         <state key="normal" title="prev"/>
+                                        <connections>
+                                            <action selector="prevButtonPressed:" destination="TqF-PN-H9L" eventType="touchUpInside" id="2B1-eT-YPx"/>
+                                        </connections>
                                     </button>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8BO-EZ-GrR">
-                                        <rect key="frame" x="93" y="109" width="61.5" height="31.5"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="26"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8BO-EZ-GrR">
+                                        <rect key="frame" x="124" y="109" width="0.0" height="0.0"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="19"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -108,9 +114,9 @@
                         </connections>
                     </view>
                     <connections>
-                        <outlet property="cityName" destination="g1M-p4-BwG" id="xuN-V0-nI6"/>
+                        <outlet property="cityNameLabel" destination="g1M-p4-BwG" id="xuN-V0-nI6"/>
                         <outlet property="tapGesture" destination="opq-qX-Cty" id="89L-oI-oCm"/>
-                        <outlet property="temparatureValue" destination="8BO-EZ-GrR" id="RxP-mJ-IDk"/>
+                        <outlet property="temparatureLabel" destination="8BO-EZ-GrR" id="RxP-mJ-IDk"/>
                         <outlet property="weatherView" destination="Pnh-M2-ywr" id="O2p-NS-uRj"/>
                     </connections>
                 </viewController>

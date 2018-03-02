@@ -19,22 +19,30 @@ internal final class NetworkManager {
     internal func get(from url: String,
                       callback: @escaping (WeatherItem?, Error?) -> ()) {
         // TODO: fix force unwrap here
-        URLSession.shared.dataTask(with: URL(string: url)!) { (data, response, error) in
-            if let error = error {
-                callback(nil, error)
-            }
-            guard let data = data else {
-                return
-            }
+        
+        if let url = URL(string: url)
+        {
+            URLSession.shared.dataTask(with: url) { (data, response, error) in
+                if let error = error {
+                    callback(nil, error)
+                }
+                guard let data = data else {
+                    return
+                }
 
-            let weatherItem = EntityConverterFactory.makeConverter(for: .weatherItem).convert(entity: data)
+                let weatherItem = EntityConverterFactory.makeConverter(for: .weatherItem).convert(entity: data)
 
-            guard let item = weatherItem as? WeatherItem else {
-                return
-            }
+                guard let item = weatherItem as? WeatherItem else {
+                    return
+                }
 
-            callback(item, nil)
+                callback(item, nil)
 
-        }.resume()
+            }.resume()
+        }
+        else
+        {
+            assert(false)
+        }
     }
 }
