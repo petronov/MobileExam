@@ -10,7 +10,9 @@ import UIKit
 
 class PopUpViewController: UIViewController {
 
+    @IBOutlet weak var weatherView: UIView!
     @IBOutlet weak var cityName: UILabel!
+    @IBOutlet weak var temparatureValue: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,18 +28,17 @@ class PopUpViewController: UIViewController {
     @IBOutlet var tapGesture: UITapGestureRecognizer!
     
     @IBAction func tapOutside(_ sender: Any) {
-        debugPrint("tap outside")
-        self.view.removeFromSuperview()
+        
+        if let tapGesture = sender as? UITapGestureRecognizer
+        {
+            let touchLocation = tapGesture.location(in: self.view)
+            
+            if weatherView != nil &&
+               !self.weatherView.frame.contains(touchLocation)
+            {
+                debugPrint("tap outside")
+                self.view.removeFromSuperview()
+            }
+        }
     }
-    
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

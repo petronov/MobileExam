@@ -116,6 +116,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         popOverVC.view.frame = self.view.frame
         
         popOverVC.cityName?.text = cities[indexPath.row]
+        popOverVC.temparatureValue.text = "-10"
         
         self.view.addSubview(popOverVC.view)
         popOverVC.didMove(toParentViewController: self)
