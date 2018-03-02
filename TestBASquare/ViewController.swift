@@ -10,6 +10,8 @@ import UIKit
 
 class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
+    let reachability = Reachability()!
+    
     @IBOutlet var tableView: UITableView?
     
     let cities = ["Lviv",
@@ -25,10 +27,51 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
         
         tableView?.register(TableViewCell.self, forCellReuseIdentifier: "cellReuseIdentifier")
-        //tableView?.allowsSelection = false
+        
+        
+        reachability.whenReachable = { _ in
+            DispatchQueue.main.async {
+                debugPrint("we have access to internet")
+            }
+        }
+        
+        reachability.whenUnreachable = { _ in
+            DispatchQueue.main.async {
+                debugPrint("no internet connection")
+            }
+        }
+        
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(internetChanged),
+                                               name: Notification.Name.reachabilityChanged,
+                                               object: reachability)
+        
+        do {
+            try reachability.startNotifier()
+        }
+        catch
+        {
+            print("Could not startnotifier")
+        }
+    }
+    
+    @objc func internetChanged(note: Notification) {
+        let reachability = note.object as! Reachability
+        
+        if reachability.isReachable
+        {
+            DispatchQueue.main.async {
+                debugPrint("we have access to internet")
+            }
+        }
+        else
+        {
+            DispatchQueue.main.async {
+                debugPrint("no internet connection")
+            }
+        }
     }
 
     override func didReceiveMemoryWarning() {

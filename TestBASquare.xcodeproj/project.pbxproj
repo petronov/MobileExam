@@ -14,6 +14,7 @@
 		ABD2F0A12049298B00B86F35 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ABD2F09F2049298B00B86F35 /* LaunchScreen.storyboard */; };
 		ABD2F0A9204934F800B86F35 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABD2F0A8204934F800B86F35 /* TableViewCell.swift */; };
 		ABD2F0AD2049409700B86F35 /* PopUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABD2F0AC2049409700B86F35 /* PopUpViewController.swift */; };
+		ABD2F0B12049561A00B86F35 /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABD2F0B02049561A00B86F35 /* Reachability.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		ABD2F0A22049298B00B86F35 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		ABD2F0A8204934F800B86F35 /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
 		ABD2F0AC2049409700B86F35 /* PopUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopUpViewController.swift; sourceTree = "<group>"; };
+		ABD2F0B02049561A00B86F35 /* Reachability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +60,7 @@
 		ABD2F0952049298B00B86F35 /* TestBASquare */ = {
 			isa = PBXGroup;
 			children = (
+				ABD2F0AE2049557800B86F35 /* Third party sources */,
 				ABD2F0A8204934F800B86F35 /* TableViewCell.swift */,
 				ABD2F0962049298B00B86F35 /* AppDelegate.swift */,
 				ABD2F0982049298B00B86F35 /* ViewController.swift */,
@@ -68,6 +71,22 @@
 				ABD2F0A22049298B00B86F35 /* Info.plist */,
 			);
 			path = TestBASquare;
+			sourceTree = "<group>";
+		};
+		ABD2F0AE2049557800B86F35 /* Third party sources */ = {
+			isa = PBXGroup;
+			children = (
+				ABD2F0AF204955FE00B86F35 /* InternetReachability */,
+			);
+			path = "Third party sources";
+			sourceTree = "<group>";
+		};
+		ABD2F0AF204955FE00B86F35 /* InternetReachability */ = {
+			isa = PBXGroup;
+			children = (
+				ABD2F0B02049561A00B86F35 /* Reachability.swift */,
+			);
+			path = InternetReachability;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -145,6 +164,7 @@
 				ABD2F0A9204934F800B86F35 /* TableViewCell.swift in Sources */,
 				ABD2F0992049298B00B86F35 /* ViewController.swift in Sources */,
 				ABD2F0972049298B00B86F35 /* AppDelegate.swift in Sources */,
+				ABD2F0B12049561A00B86F35 /* Reachability.swift in Sources */,
 				ABD2F0AD2049409700B86F35 /* PopUpViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
