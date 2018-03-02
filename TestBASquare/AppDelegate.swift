@@ -125,12 +125,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate
             if reachability.isReachable
             {
                 DispatchQueue.main.async {
+                    ViewController.internetIsReachableInUI = true
                     NotificationCenter.default.post(name: Notification.Name(rawValue: InternetIsAvailableNotification), object: nil, userInfo: nil)
                 }
             }
             else
             {
                 DispatchQueue.main.async {
+                    ViewController.internetIsReachableInUI = false
                     NotificationCenter.default.post(name: Notification.Name(rawValue: NoInternetNotification), object: nil, userInfo: nil)
                 }
             }

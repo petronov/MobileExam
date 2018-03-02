@@ -82,8 +82,6 @@ class WeatherViewController: UIViewController, UIPageViewControllerDataSource, U
     @IBOutlet weak var noInternetLabel: UILabel!
     @IBOutlet weak var dataArentAvailableLabel: UILabel!
     
-    //private var noInternetConnection: Bool?
-    
     //---------------------------------------------------------------------------------------------
     
     override func viewDidLoad()
@@ -229,29 +227,26 @@ class WeatherViewController: UIViewController, UIPageViewControllerDataSource, U
         self.weatherView?.bringSubview(toFront: self.dataArentAvailableLabel)
         self.dataArentAvailableLabel.isHidden = false
         
-        /*
-        if self.noInternetConnection != nil &&
-           self.noInternetConnection!
+        
+        if ViewController.internetIsReachableInUI != nil &&
+           !(ViewController.internetIsReachableInUI!)
         {
             self.weatherView?.bringSubview(toFront: self.noInternetLabel)
             self.noInternetLabel.isHidden = false
         }
-        */
     }
     
     //---------------------------------------------------------------------------------------------
     
     @objc func noInternetNotification(_ notification: Notification)
     {
-        //self.noInternetConnection = true
+        // nothing
     }
     
     //---------------------------------------------------------------------------------------------
     
     @objc func internetIsAvailableNotification(_ notification: Notification)
     {
-        //self.noInternetConnection = false
-        
         if let cityName = self.citiesDataSource?.getSelectedCityName()
         {
             WeatherDataManager.instance.receiveWeather(for: cityName)
