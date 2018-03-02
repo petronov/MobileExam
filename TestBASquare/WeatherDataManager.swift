@@ -58,9 +58,11 @@ class WeatherDataManager
                     DispatchQueue.main.async {
                         
                         // TODO: use appropriate way to get string
-                        let tempStr: String = String(Int(round(weatherItem!.celsius.currentTemp))) + " ℃"
+                        let tempatureValue = Int(round(weatherItem!.celsius.currentTemp))
+                        let tempatureStr: String = String(tempatureValue) + " ℃"
                         let dictionary: [String: Any] = ["city": city,
-                                                         "temperatureCelsius": tempStr]
+                                                         "temperatureCelsiusStr": tempatureStr,
+                                                         "temperatureCelsiusValue": tempatureValue]
                         NotificationCenter.default.post(name: Notification.Name(rawValue: WeatherDateNotification), object: nil, userInfo: dictionary)
                     }
                 }

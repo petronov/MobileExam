@@ -24,6 +24,7 @@
 		ABD2F0CB20495A5F00B86F35 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = ABD2F0C220495A5F00B86F35 /* Info.plist */; };
 		ABD2F0CF2049721100B86F35 /* WeatherDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABD2F0CE2049721100B86F35 /* WeatherDataManager.swift */; };
 		ABD2F0D520498A6700B86F35 /* CitiesDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABD2F0D420498A6700B86F35 /* CitiesDataSource.swift */; };
+		ABD2F0D92049D3D300B86F35 /* WeatherContentPage.xib in Resources */ = {isa = PBXBuildFile; fileRef = ABD2F0D82049D3D300B86F35 /* WeatherContentPage.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -47,6 +48,7 @@
 		ABD2F0C320495A5F00B86F35 /* OpenWeatherMapKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OpenWeatherMapKit.h; sourceTree = "<group>"; };
 		ABD2F0CE2049721100B86F35 /* WeatherDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherDataManager.swift; sourceTree = "<group>"; };
 		ABD2F0D420498A6700B86F35 /* CitiesDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CitiesDataSource.swift; sourceTree = "<group>"; };
+		ABD2F0D82049D3D300B86F35 /* WeatherContentPage.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WeatherContentPage.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,6 +88,7 @@
 				ABD2F0AC2049409700B86F35 /* WeatherViewController.swift */,
 				ABD2F0CE2049721100B86F35 /* WeatherDataManager.swift */,
 				ABD2F09A2049298B00B86F35 /* Main.storyboard */,
+				ABD2F0D82049D3D300B86F35 /* WeatherContentPage.xib */,
 				ABD2F09D2049298B00B86F35 /* Assets.xcassets */,
 				ABD2F09F2049298B00B86F35 /* LaunchScreen.storyboard */,
 				ABD2F0A22049298B00B86F35 /* Info.plist */,
@@ -244,6 +247,7 @@
 				ABD2F0CB20495A5F00B86F35 /* Info.plist in Resources */,
 				ABD2F0A12049298B00B86F35 /* LaunchScreen.storyboard in Resources */,
 				ABD2F09E2049298B00B86F35 /* Assets.xcassets in Resources */,
+				ABD2F0D92049D3D300B86F35 /* WeatherContentPage.xib in Resources */,
 				ABD2F09C2049298B00B86F35 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

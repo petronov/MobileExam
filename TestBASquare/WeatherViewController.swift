@@ -21,42 +21,30 @@ class ContentViewController: UIViewController
     //---------------------------------------------------------------------------------------------
     
     var cityName: String?
-    var lbTemperature: UILabel?
+    
+    @IBOutlet weak var lbTemperature: UILabel!
+    @IBOutlet weak var lbCityName: UILabel!
+    
+    //---------------------------------------------------------------------------------------------
+    
+    init()
+    {
+        super.init(nibName: "WeatherContentPage", bundle: nil)
+    }
+    
+    //---------------------------------------------------------------------------------------------
+    
+    required init?(coder aDecoder: NSCoder)
+    {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     //---------------------------------------------------------------------------------------------
     
     override func viewDidLoad()
     {
         super.viewDidLoad()
-        
-        self.view.backgroundColor = #colorLiteral(red: 0.9764705896, green: 0.850980401, blue: 0.5490196347, alpha: 1)
-        
-        let lbCityName = UILabel()
-        lbCityName.textAlignment = .center
-        lbCityName.text = self.cityName ?? ""
-        
-        assert(self.cityName != nil)
-        
-        self.lbTemperature = UILabel()
-        lbTemperature?.textAlignment = .center
-        lbTemperature?.text = ""
-        
-        assert(self.lbTemperature != nil)
-        
-        let views = ["lbTemperature": lbTemperature!,
-                     "lbCityName": lbCityName]
-        
-        for (_, v) in views
-        {
-            v.translatesAutoresizingMaskIntoConstraints = false
-            self.view.addSubview(v)
-        }
-        
-        NSLayoutConstraint.activate(
-            NSLayoutConstraint.constraints(withVisualFormat: "H:|-[lbCityName]-|",                          options: .alignAllCenterX, metrics: [:], views: views) +
-            NSLayoutConstraint.constraints(withVisualFormat: "H:|-[lbTemperature]-|",                       options: .alignAllCenterX, metrics: [:], views: views) +
-            NSLayoutConstraint.constraints(withVisualFormat: "V:|-20-[lbCityName]-10-[lbTemperature]-40-|", options: .alignAllCenterX, metrics: [:], views: views)
-        )
+        self.lbCityName.text = self.cityName ?? ""
     }
     
     //---------------------------------------------------------------------------------------------
@@ -81,7 +69,7 @@ class WeatherViewController: UIViewController, UIPageViewControllerDataSource, U
     
     var citiesDataSource: CitiesDataSource?
     
-    var pageViewController: UIPageViewController!
+    private var pageViewController: UIPageViewController!
     
     @IBOutlet weak var pageControl: UIPageControl!
     
@@ -91,6 +79,11 @@ class WeatherViewController: UIViewController, UIPageViewControllerDataSource, U
     private var currentIndex: Int?
     private var pendingIndex: Int?
     
+    @IBOutlet weak var noInternetLabel: UILabel!
+    @IBOutlet weak var dataArentAvailableLabel: UILabel!
+    
+    //private var noInternetConnection: Bool?
+    
     //---------------------------------------------------------------------------------------------
     
     override func viewDidLoad()
@@ -99,6 +92,9 @@ class WeatherViewController: UIViewController, UIPageViewControllerDataSource, U
         
         NotificationCenter.default.addObserver(self, selector: #selector(WeatherViewController.weatherDateNotification(_:)), name: NSNotification.Name(rawValue: WeatherDateNotification), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(WeatherViewController.weatherDateNotAvailableNotification(_:)), name: NSNotification.Name(rawValue: WeatherDateNotAvailableNotification), object: nil)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(WeatherViewController.noInternetNotification(_:)), name: NSNotification.Name(rawValue: NoInternetNotification), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(WeatherViewController.internetIsAvailableNotification(_:)), name: NSNotification.Name(rawValue: InternetIsAvailableNotification), object: nil)
         
         if self.citiesDataSource != nil,
             let selectedCityName = self.citiesDataSource!.getSelectedCityName()
@@ -194,23 +190,72 @@ class WeatherViewController: UIViewController, UIPageViewControllerDataSource, U
     @objc func weatherDateNotification(_ notification: Notification)
     {
         if let validCity = notification.userInfo!["city"] as? String,
-            let temperature = notification.userInfo!["temperatureCelsius"] as? String
+            let temperatureStr = notification.userInfo!["temperatureCelsiusStr"] as? String,
+              let temperatureValue = notification.userInfo!["temperatureCelsiusValue"] as? Int
         {
             for pageContentController in self.contentPagesVC
                     where pageContentController.cityName != nil &&
                           pageContentController.cityName! == validCity
             {
-                pageContentController.lbTemperature?.text = temperature
+                pageContentController.lbTemperature?.text = temperatureStr
+                
+                if temperatureValue >= 0
+                {
+                    pageContentController.lbTemperature?.textColor = #colorLiteral(red: 0.9254902005, green: 0.4099576596, blue: 0.4245134169, alpha: 1)
+                }
+                else
+                {
+                    pageContentController.lbTemperature?.textColor = #colorLiteral(red: 0.3454634147, green: 0.5658850321, blue: 1, alpha: 1)
+                }
+                
+                pageContentController.view.setNeedsDisplay()
             }
         }
+        
+        self.dataArentAvailableLabel.isHidden = true
+        self.noInternetLabel.isHidden = true
     }
     
     //---------------------------------------------------------------------------------------------
     
     @objc func weatherDateNotAvailableNotification(_ notification: Notification)
     {
-        // TODO: ...
-        //.text = "Data aren't available"
+        for pageContentController in self.contentPagesVC
+        {
+            pageContentController.lbTemperature?.text = " "
+            pageContentController.view.setNeedsDisplay()
+        }
+        
+        self.weatherView?.bringSubview(toFront: self.dataArentAvailableLabel)
+        self.dataArentAvailableLabel.isHidden = false
+        
+        /*
+        if self.noInternetConnection != nil &&
+           self.noInternetConnection!
+        {
+            self.weatherView?.bringSubview(toFront: self.noInternetLabel)
+            self.noInternetLabel.isHidden = false
+        }
+        */
+    }
+    
+    //---------------------------------------------------------------------------------------------
+    
+    @objc func noInternetNotification(_ notification: Notification)
+    {
+        //self.noInternetConnection = true
+    }
+    
+    //---------------------------------------------------------------------------------------------
+    
+    @objc func internetIsAvailableNotification(_ notification: Notification)
+    {
+        //self.noInternetConnection = false
+        
+        if let cityName = self.citiesDataSource?.getSelectedCityName()
+        {
+            WeatherDataManager.instance.receiveWeather(for: cityName)
+        }
     }
     
     //---------------------------------------------------------------------------------------------
@@ -219,7 +264,7 @@ class WeatherViewController: UIViewController, UIPageViewControllerDataSource, U
     
     func viewControllerAtIndex(index: Int) -> ContentViewController
     {
-        return contentPagesVC[index]// as! ContentViewController
+        return contentPagesVC[index]
     }
     
     //---------------------------------------------------------------------------------------------
@@ -272,7 +317,8 @@ class WeatherViewController: UIViewController, UIPageViewControllerDataSource, U
                         where pageContentController.cityName != nil &&
                               pageContentController.cityName! == selectedCityName
                     {
-                        pageContentController.lbTemperature?.text = ""
+                        pageContentController.lbTemperature?.text = " "
+                        pageContentController.view.setNeedsDisplay()
                     }
                     
                     WeatherDataManager.instance.receiveWeather(for: selectedCityName)

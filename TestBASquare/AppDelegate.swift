@@ -9,6 +9,19 @@
 
 import UIKit
 
+///////////////////////////////////////////////////////////////////////////////////////////////
+//    global variable
+//      Notification name
+//---------------------------------------------------------------------------------------------
+public let NoInternetNotification: String = "NoInternetNotification"
+
+///////////////////////////////////////////////////////////////////////////////////////////////
+//    global variable
+//      Notification name
+//---------------------------------------------------------------------------------------------
+public let InternetIsAvailableNotification: String = "InternetIsAvailableNotification"
+
+
 //=============================================================================================
 //
 //     class AppDelegate
@@ -32,13 +45,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate
         {
             reachability!.whenReachable = { _ in
                 DispatchQueue.main.async {
-                    //debugPrint("we haven't access to internet")
+                    NotificationCenter.default.post(name: Notification.Name(rawValue: InternetIsAvailableNotification), object: nil, userInfo: nil)
                 }
             }
             
             reachability!.whenUnreachable = { _ in
                 DispatchQueue.main.async {
-                    //debugPrint("no internet connection")
+                    NotificationCenter.default.post(name: Notification.Name(rawValue: NoInternetNotification), object: nil, userInfo: nil)
                 }
             }
         }
@@ -112,13 +125,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate
             if reachability.isReachable
             {
                 DispatchQueue.main.async {
-                    //debugPrint("we have access to internet")
+                    NotificationCenter.default.post(name: Notification.Name(rawValue: InternetIsAvailableNotification), object: nil, userInfo: nil)
                 }
             }
             else
             {
                 DispatchQueue.main.async {
-                    //debugPrint("no internet connection")
+                    NotificationCenter.default.post(name: Notification.Name(rawValue: NoInternetNotification), object: nil, userInfo: nil)
                 }
             }
         }

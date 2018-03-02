@@ -61,8 +61,8 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Pnh-M2-ywr" userLabel="WeatherView">
                                 <rect key="frame" x="64" y="123.5" width="247.5" height="440"/>
                                 <subviews>
-                                    <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8BO-EZ-GrR" userLabel="Data Avalability Label">
-                                        <rect key="frame" x="124" y="109" width="0.0" height="0.0"/>
+                                    <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Data aren't available" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8BO-EZ-GrR" userLabel="Data Avalability Label">
+                                        <rect key="frame" x="0.0" y="209" width="248" height="23"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="19"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -72,13 +72,26 @@
                                         <color key="pageIndicatorTintColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <color key="currentPageIndicatorTintColor" red="0.92502170139999995" green="0.0" blue="0.0086598270402696038" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </pageControl>
+                                    <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No internet connection" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HSd-oW-mAG">
+                                        <rect key="frame" x="0.0" y="242" width="248" height="19.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
+                                    <constraint firstItem="8BO-EZ-GrR" firstAttribute="leading" secondItem="Pnh-M2-ywr" secondAttribute="leading" id="5Ba-zz-JkS"/>
                                     <constraint firstItem="Ug1-tL-9da" firstAttribute="leading" secondItem="Pnh-M2-ywr" secondAttribute="leading" id="8ii-Xm-zbi"/>
+                                    <constraint firstItem="HSd-oW-mAG" firstAttribute="leading" secondItem="Pnh-M2-ywr" secondAttribute="leading" id="Ays-gA-76d"/>
+                                    <constraint firstItem="HSd-oW-mAG" firstAttribute="leading" secondItem="Pnh-M2-ywr" secondAttribute="leading" id="DGR-8g-YDQ"/>
+                                    <constraint firstAttribute="trailing" secondItem="HSd-oW-mAG" secondAttribute="trailing" id="GbS-Gu-yLo"/>
                                     <constraint firstAttribute="bottom" secondItem="Ug1-tL-9da" secondAttribute="bottom" id="LC5-7o-QFp"/>
-                                    <constraint firstItem="8BO-EZ-GrR" firstAttribute="top" secondItem="Pnh-M2-ywr" secondAttribute="top" constant="109" id="jOn-FR-lXD"/>
-                                    <constraint firstItem="8BO-EZ-GrR" firstAttribute="centerX" secondItem="Pnh-M2-ywr" secondAttribute="centerX" id="pwa-OV-LEL"/>
+                                    <constraint firstItem="HSd-oW-mAG" firstAttribute="top" secondItem="8BO-EZ-GrR" secondAttribute="bottom" constant="10" id="LJP-7L-D0t"/>
+                                    <constraint firstAttribute="trailing" secondItem="8BO-EZ-GrR" secondAttribute="trailing" id="TO9-1b-ORv"/>
+                                    <constraint firstAttribute="trailing" secondItem="HSd-oW-mAG" secondAttribute="trailing" id="b3B-Nh-7UE"/>
+                                    <constraint firstItem="HSd-oW-mAG" firstAttribute="centerX" secondItem="Pnh-M2-ywr" secondAttribute="centerX" id="x37-pA-hKi"/>
+                                    <constraint firstItem="8BO-EZ-GrR" firstAttribute="centerY" secondItem="Pnh-M2-ywr" secondAttribute="centerY" id="yLf-73-p2W"/>
                                     <constraint firstAttribute="trailing" secondItem="Ug1-tL-9da" secondAttribute="trailing" constant="-0.5" id="yxG-tG-dFo"/>
                                 </constraints>
                             </view>
@@ -96,6 +109,8 @@
                         </connections>
                     </view>
                     <connections>
+                        <outlet property="dataArentAvailableLabel" destination="8BO-EZ-GrR" id="WPi-lw-wel"/>
+                        <outlet property="noInternetLabel" destination="HSd-oW-mAG" id="Bne-Mc-yam"/>
                         <outlet property="pageControl" destination="Ug1-tL-9da" id="VBR-Sq-uqi"/>
                         <outlet property="tapGesture" destination="opq-qX-Cty" id="89L-oI-oCm"/>
                         <outlet property="weatherView" destination="Pnh-M2-ywr" id="O2p-NS-uRj"/>
