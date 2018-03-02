@@ -42,7 +42,7 @@ internal final class NetworkManager {
         }
         else
         {
-            assert(false)
+            assertionFailure()
         }
     }
 }

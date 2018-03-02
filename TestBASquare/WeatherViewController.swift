@@ -24,7 +24,7 @@ class ContentViewController: UIViewController
     
     @IBOutlet weak var temperatureLabel: UILabel!
     @IBOutlet weak var cityNameLabel: UILabel!
-    @IBOutlet weak var cloudinessValueLabel: UILabel!
+    @IBOutlet weak var cloudinessImageView: UIImageView!
     
     //---------------------------------------------------------------------------------------------
     
@@ -163,7 +163,7 @@ class WeatherViewController: UIViewController, UIPageViewControllerDataSource, U
             if weatherView != nil &&
                 !self.weatherView.frame.contains(touchLocation)
             {
-                debugPrint("tap outside")
+                //debugPrint("tap outside")
                 self.view.removeFromSuperview()
             }
         }
@@ -197,18 +197,27 @@ class WeatherViewController: UIViewController, UIPageViewControllerDataSource, U
                     where pageContentController.cityName != nil &&
                           pageContentController.cityName! == validCity
             {
-                pageContentController.temperatureLabel.text = temperatureStr
+                pageContentController.temperatureLabel?.text = temperatureStr
                 
                 if temperatureValue >= 0
                 {
-                    pageContentController.temperatureLabel.textColor = #colorLiteral(red: 0.9254902005, green: 0.4099576596, blue: 0.4245134169, alpha: 1)
+                    pageContentController.temperatureLabel?.textColor = #colorLiteral(red: 0.9254902005, green: 0.4099576596, blue: 0.4245134169, alpha: 1)
                 }
                 else
                 {
-                    pageContentController.temperatureLabel.textColor = #colorLiteral(red: 0.3454634147, green: 0.5658850321, blue: 1, alpha: 1)
+                    pageContentController.temperatureLabel?.textColor = #colorLiteral(red: 0.3454634147, green: 0.5658850321, blue: 1, alpha: 1)
                 }
                 
-                pageContentController.cloudinessValueLabel.text = String(cloudinessValue)
+                switch cloudinessValue
+                {
+                    case  0 ... 20: pageContentController.cloudinessImageView?.image = UIImage(named: "sun.png")
+                    case 21 ... 66: pageContentController.cloudinessImageView?.image = UIImage(named: "half_clouds.png")
+                    case 67 ... 100: pageContentController.cloudinessImageView?.image = UIImage(named: "clouds.png")
+                    default:
+                        assertionFailure()
+                }
+                
+                pageContentController.cloudinessImageView?.isHidden = false
                 
                 pageContentController.view.setNeedsDisplay()
             }
@@ -224,8 +233,8 @@ class WeatherViewController: UIViewController, UIPageViewControllerDataSource, U
     {
         for pageContentController in self.contentPagesVC
         {
-            pageContentController.temperatureLabel.text = " "
-            pageContentController.cloudinessValueLabel.text = " "
+            pageContentController.temperatureLabel?.text = " "
+            pageContentController.cloudinessImageView?.isHidden = true
             pageContentController.view.setNeedsDisplay()
         }
         
@@ -317,8 +326,8 @@ class WeatherViewController: UIViewController, UIPageViewControllerDataSource, U
                         where pageContentController.cityName != nil &&
                               pageContentController.cityName! == selectedCityName
                     {
-                        pageContentController.temperatureLabel.text = " "
-                        pageContentController.cloudinessValueLabel.text = " "
+                        pageContentController.temperatureLabel?.text = " "
+                        pageContentController.cloudinessImageView?.isHidden = true
                         pageContentController.view.setNeedsDisplay()
                     }
                     

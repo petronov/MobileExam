@@ -18,14 +18,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mobile exam" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e5x-Uz-DhT">
-                                <rect key="frame" x="132.5" y="193" width="110.5" height="24"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TestBASquare" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e5x-Uz-DhT">
+                                <rect key="frame" x="108.5" y="193" width="158.5" height="31.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="26"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Copyright (c) Petro Novosad" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ud3-eO-7Jl">
-                                <rect key="frame" x="89.5" y="542" width="195" height="18"/>
+                                <rect key="frame" x="90" y="530" width="195" height="18"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -35,7 +35,7 @@
                         <constraints>
                             <constraint firstItem="ud3-eO-7Jl" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="0Or-zc-X7k"/>
                             <constraint firstItem="e5x-Uz-DhT" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="173" id="IJw-vy-dE5"/>
-                            <constraint firstItem="ud3-eO-7Jl" firstAttribute="top" secondItem="e5x-Uz-DhT" secondAttribute="bottom" constant="325" id="ka1-HT-OS1"/>
+                            <constraint firstItem="ud3-eO-7Jl" firstAttribute="top" secondItem="e5x-Uz-DhT" secondAttribute="bottom" constant="305.5" id="ka1-HT-OS1"/>
                             <constraint firstItem="e5x-Uz-DhT" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="xel-jG-Wky"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>

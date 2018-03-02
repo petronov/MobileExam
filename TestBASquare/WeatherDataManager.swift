@@ -81,7 +81,7 @@ class WeatherDataManager
         }
         else
         {
-            assert(false)
+            assertionFailure()
         }
     }
     
