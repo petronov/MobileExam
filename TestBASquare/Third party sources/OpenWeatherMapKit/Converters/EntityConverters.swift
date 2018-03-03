@@ -48,7 +48,8 @@ internal class WeatherItemConverter: EntityConverter {
                 case 200 ... 232
                     : descriptionStr = "thunderstorm"
                 
-                case 311, // drizzle rain
+                case 310, // light intensity drizzle rain
+                     311, // drizzle rain
                      312, // heavy intensity drizzle rain
                      313, //  shower rain and drizzle
                      314, // heavy shower rain and drizzle
@@ -93,7 +94,10 @@ internal class WeatherItemConverter: EntityConverter {
                      761  // dust
                     : descriptionStr = "dust"
                 
-                case 741  // fog
+                case 300, // light intensity drizzle
+                     301, // drizzle
+                     302, // heavy intensity drizzle
+                     741  // fog
                     : descriptionStr = "fog"
                 
                 case 800 // clear sky
