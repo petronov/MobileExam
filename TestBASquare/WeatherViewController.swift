@@ -24,7 +24,7 @@ class ContentViewController: UIViewController
     
     @IBOutlet weak var temperatureLabel: UILabel!
     @IBOutlet weak var cityNameLabel: UILabel!
-    @IBOutlet weak var cloudinessImageView: UIImageView!
+    @IBOutlet weak var weatherDescriptionImageView: UIImageView!
     
     //---------------------------------------------------------------------------------------------
     
@@ -191,7 +191,8 @@ class WeatherViewController: UIViewController, UIPageViewControllerDataSource, U
         if let validCity = notification.userInfo!["city"] as? String,
             let temperatureStr = notification.userInfo!["temperatureCelsiusStr"] as? String,
               let temperatureValue = notification.userInfo!["temperatureCelsiusValue"] as? Int,
-                let cloudinessValue = notification.userInfo!["cloudinessValue"] as? Int
+                let _ = notification.userInfo!["cloudinessValue"] as? Int,
+                  let weatherDescription = notification.userInfo!["weatherDescription"] as? String
         {
             for pageContentController in self.contentPagesVC
                     where pageContentController.cityName != nil &&
@@ -208,16 +209,26 @@ class WeatherViewController: UIViewController, UIPageViewControllerDataSource, U
                     pageContentController.temperatureLabel?.textColor = #colorLiteral(red: 0.3454634147, green: 0.5658850321, blue: 1, alpha: 1)
                 }
                 
-                switch cloudinessValue
+                switch weatherDescription
                 {
-                    case  0 ... 20: pageContentController.cloudinessImageView?.image = UIImage(named: "sun.png")
-                    case 21 ... 66: pageContentController.cloudinessImageView?.image = UIImage(named: "half_clouds.png")
-                    case 67 ... 100: pageContentController.cloudinessImageView?.image = UIImage(named: "clouds.png")
-                    default:
-                        assertionFailure()
+                    case "blowing-snow":    pageContentController.weatherDescriptionImageView?.image = UIImage(named: "ios11-weather-blowing-snow-icon.png")
+                    case "cloudy":          pageContentController.weatherDescriptionImageView?.image = UIImage(named: "ios11-weather-cloudy-icon.png")
+                    case "dust":            pageContentController.weatherDescriptionImageView?.image = UIImage(named: "ios11-weather-dust-icon.png")
+                    case "fog":             pageContentController.weatherDescriptionImageView?.image = UIImage(named: "ios11-weather-fog-icon.png")
+                    case "hail":            pageContentController.weatherDescriptionImageView?.image = UIImage(named: "ios11-weather-hail-icon.png")
+                    case "heavy-rain":      pageContentController.weatherDescriptionImageView?.image = UIImage(named: "ios11-weather-heavy-rain-icon.png")
+                    case "partly-sunny":    pageContentController.weatherDescriptionImageView?.image = UIImage(named: "ios11-weather-partly-sunny-icon.png")
+                    case "rain":            pageContentController.weatherDescriptionImageView?.image = UIImage(named: "ios11-weather-rain-icon.png")
+                    case "scattered-snow":  pageContentController.weatherDescriptionImageView?.image = UIImage(named: "ios11-weather-scattered-snow-icon.png")
+                    case "smoke":           pageContentController.weatherDescriptionImageView?.image = UIImage(named: "ios11-weather-smoke-icon.png")
+                    case "snow":            pageContentController.weatherDescriptionImageView?.image = UIImage(named: "ios11-weather-snow-icon.png")
+                    case "snow-sleet":      pageContentController.weatherDescriptionImageView?.image = UIImage(named: "ios11-weather-snow-sleet-icon.png")
+                    case "sunny":           pageContentController.weatherDescriptionImageView?.image = UIImage(named: "ios11-weather-sunny-icon.png")
+                    case "thunderstorm":    pageContentController.weatherDescriptionImageView?.image = UIImage(named: "ios11-weather-thunderstorm-icon.png")
+                    default:                pageContentController.weatherDescriptionImageView?.image = UIImage(named: "no_icon.png")
                 }
                 
-                pageContentController.cloudinessImageView?.isHidden = false
+                pageContentController.weatherDescriptionImageView?.isHidden = false
                 
                 pageContentController.view.setNeedsDisplay()
             }
@@ -234,7 +245,7 @@ class WeatherViewController: UIViewController, UIPageViewControllerDataSource, U
         for pageContentController in self.contentPagesVC
         {
             pageContentController.temperatureLabel?.text = " "
-            pageContentController.cloudinessImageView?.isHidden = true
+            pageContentController.weatherDescriptionImageView?.isHidden = true
             pageContentController.view.setNeedsDisplay()
         }
         
@@ -327,7 +338,7 @@ class WeatherViewController: UIViewController, UIPageViewControllerDataSource, U
                               pageContentController.cityName! == selectedCityName
                     {
                         pageContentController.temperatureLabel?.text = " "
-                        pageContentController.cloudinessImageView?.isHidden = true
+                        pageContentController.weatherDescriptionImageView?.isHidden = true
                         pageContentController.view.setNeedsDisplay()
                     }
                     

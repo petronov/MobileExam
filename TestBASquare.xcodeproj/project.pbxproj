@@ -7,6 +7,21 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AB8A1CF8204AB2A900F8F9FD /* ios11-weather-snow-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = AB8A1CEA204AB2A800F8F9FD /* ios11-weather-snow-icon.png */; };
+		AB8A1CF9204AB2A900F8F9FD /* ios11-weather-sunny-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = AB8A1CEB204AB2A800F8F9FD /* ios11-weather-sunny-icon.png */; };
+		AB8A1CFA204AB2A900F8F9FD /* ios11-weather-snow-sleet-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = AB8A1CEC204AB2A800F8F9FD /* ios11-weather-snow-sleet-icon.png */; };
+		AB8A1CFB204AB2A900F8F9FD /* ios11-weather-hail-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = AB8A1CED204AB2A800F8F9FD /* ios11-weather-hail-icon.png */; };
+		AB8A1CFC204AB2A900F8F9FD /* ios11-weather-rain-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = AB8A1CEE204AB2A800F8F9FD /* ios11-weather-rain-icon.png */; };
+		AB8A1CFD204AB2A900F8F9FD /* ios11-weather-cloudy-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = AB8A1CEF204AB2A800F8F9FD /* ios11-weather-cloudy-icon.png */; };
+		AB8A1CFE204AB2A900F8F9FD /* ios11-weather-thunderstorm-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = AB8A1CF0204AB2A800F8F9FD /* ios11-weather-thunderstorm-icon.png */; };
+		AB8A1CFF204AB2A900F8F9FD /* ios11-weather-smoke-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = AB8A1CF1204AB2A900F8F9FD /* ios11-weather-smoke-icon.png */; };
+		AB8A1D00204AB2A900F8F9FD /* ios11-weather-heavy-rain-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = AB8A1CF2204AB2A900F8F9FD /* ios11-weather-heavy-rain-icon.png */; };
+		AB8A1D01204AB2A900F8F9FD /* ios11-weather-dust-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = AB8A1CF3204AB2A900F8F9FD /* ios11-weather-dust-icon.png */; };
+		AB8A1D02204AB2A900F8F9FD /* ios11-weather-fog-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = AB8A1CF4204AB2A900F8F9FD /* ios11-weather-fog-icon.png */; };
+		AB8A1D03204AB2A900F8F9FD /* ios11-weather-blowing-snow-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = AB8A1CF5204AB2A900F8F9FD /* ios11-weather-blowing-snow-icon.png */; };
+		AB8A1D04204AB2A900F8F9FD /* ios11-weather-partly-sunny-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = AB8A1CF6204AB2A900F8F9FD /* ios11-weather-partly-sunny-icon.png */; };
+		AB8A1D05204AB2A900F8F9FD /* ios11-weather-scattered-snow-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = AB8A1CF7204AB2A900F8F9FD /* ios11-weather-scattered-snow-icon.png */; };
+		AB8A1D07204AB3B700F8F9FD /* no_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = AB8A1D06204AB3B600F8F9FD /* no_icon.png */; };
 		ABD2F0972049298B00B86F35 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABD2F0962049298B00B86F35 /* AppDelegate.swift */; };
 		ABD2F0992049298B00B86F35 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABD2F0982049298B00B86F35 /* ViewController.swift */; };
 		ABD2F09C2049298B00B86F35 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ABD2F09A2049298B00B86F35 /* Main.storyboard */; };
@@ -25,12 +40,24 @@
 		ABD2F0CF2049721100B86F35 /* WeatherDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABD2F0CE2049721100B86F35 /* WeatherDataManager.swift */; };
 		ABD2F0D520498A6700B86F35 /* CitiesDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABD2F0D420498A6700B86F35 /* CitiesDataSource.swift */; };
 		ABD2F0D92049D3D300B86F35 /* WeatherContentPage.xib in Resources */ = {isa = PBXBuildFile; fileRef = ABD2F0D82049D3D300B86F35 /* WeatherContentPage.xib */; };
-		ABD2F0DE204A06C200B86F35 /* half_clouds.png in Resources */ = {isa = PBXBuildFile; fileRef = ABD2F0DB204A06C100B86F35 /* half_clouds.png */; };
-		ABD2F0DF204A06C200B86F35 /* clouds.png in Resources */ = {isa = PBXBuildFile; fileRef = ABD2F0DC204A06C100B86F35 /* clouds.png */; };
-		ABD2F0E0204A06C200B86F35 /* sun.png in Resources */ = {isa = PBXBuildFile; fileRef = ABD2F0DD204A06C100B86F35 /* sun.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		AB8A1CEA204AB2A800F8F9FD /* ios11-weather-snow-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ios11-weather-snow-icon.png"; sourceTree = "<group>"; };
+		AB8A1CEB204AB2A800F8F9FD /* ios11-weather-sunny-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ios11-weather-sunny-icon.png"; sourceTree = "<group>"; };
+		AB8A1CEC204AB2A800F8F9FD /* ios11-weather-snow-sleet-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ios11-weather-snow-sleet-icon.png"; sourceTree = "<group>"; };
+		AB8A1CED204AB2A800F8F9FD /* ios11-weather-hail-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ios11-weather-hail-icon.png"; sourceTree = "<group>"; };
+		AB8A1CEE204AB2A800F8F9FD /* ios11-weather-rain-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ios11-weather-rain-icon.png"; sourceTree = "<group>"; };
+		AB8A1CEF204AB2A800F8F9FD /* ios11-weather-cloudy-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ios11-weather-cloudy-icon.png"; sourceTree = "<group>"; };
+		AB8A1CF0204AB2A800F8F9FD /* ios11-weather-thunderstorm-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ios11-weather-thunderstorm-icon.png"; sourceTree = "<group>"; };
+		AB8A1CF1204AB2A900F8F9FD /* ios11-weather-smoke-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ios11-weather-smoke-icon.png"; sourceTree = "<group>"; };
+		AB8A1CF2204AB2A900F8F9FD /* ios11-weather-heavy-rain-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ios11-weather-heavy-rain-icon.png"; sourceTree = "<group>"; };
+		AB8A1CF3204AB2A900F8F9FD /* ios11-weather-dust-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ios11-weather-dust-icon.png"; sourceTree = "<group>"; };
+		AB8A1CF4204AB2A900F8F9FD /* ios11-weather-fog-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ios11-weather-fog-icon.png"; sourceTree = "<group>"; };
+		AB8A1CF5204AB2A900F8F9FD /* ios11-weather-blowing-snow-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ios11-weather-blowing-snow-icon.png"; sourceTree = "<group>"; };
+		AB8A1CF6204AB2A900F8F9FD /* ios11-weather-partly-sunny-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ios11-weather-partly-sunny-icon.png"; sourceTree = "<group>"; };
+		AB8A1CF7204AB2A900F8F9FD /* ios11-weather-scattered-snow-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ios11-weather-scattered-snow-icon.png"; sourceTree = "<group>"; };
+		AB8A1D06204AB3B600F8F9FD /* no_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = no_icon.png; sourceTree = "<group>"; };
 		ABD2F0932049298B00B86F35 /* TestBASquare.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TestBASquare.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ABD2F0962049298B00B86F35 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		ABD2F0982049298B00B86F35 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -52,9 +79,6 @@
 		ABD2F0CE2049721100B86F35 /* WeatherDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherDataManager.swift; sourceTree = "<group>"; };
 		ABD2F0D420498A6700B86F35 /* CitiesDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CitiesDataSource.swift; sourceTree = "<group>"; };
 		ABD2F0D82049D3D300B86F35 /* WeatherContentPage.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WeatherContentPage.xib; sourceTree = "<group>"; };
-		ABD2F0DB204A06C100B86F35 /* half_clouds.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = half_clouds.png; sourceTree = "<group>"; };
-		ABD2F0DC204A06C100B86F35 /* clouds.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = clouds.png; sourceTree = "<group>"; };
-		ABD2F0DD204A06C100B86F35 /* sun.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sun.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -195,9 +219,21 @@
 		ABD2F0DA204A068900B86F35 /* Images */ = {
 			isa = PBXGroup;
 			children = (
-				ABD2F0DC204A06C100B86F35 /* clouds.png */,
-				ABD2F0DB204A06C100B86F35 /* half_clouds.png */,
-				ABD2F0DD204A06C100B86F35 /* sun.png */,
+				AB8A1CF5204AB2A900F8F9FD /* ios11-weather-blowing-snow-icon.png */,
+				AB8A1CEF204AB2A800F8F9FD /* ios11-weather-cloudy-icon.png */,
+				AB8A1CF3204AB2A900F8F9FD /* ios11-weather-dust-icon.png */,
+				AB8A1CF4204AB2A900F8F9FD /* ios11-weather-fog-icon.png */,
+				AB8A1CED204AB2A800F8F9FD /* ios11-weather-hail-icon.png */,
+				AB8A1CF2204AB2A900F8F9FD /* ios11-weather-heavy-rain-icon.png */,
+				AB8A1CF6204AB2A900F8F9FD /* ios11-weather-partly-sunny-icon.png */,
+				AB8A1CEE204AB2A800F8F9FD /* ios11-weather-rain-icon.png */,
+				AB8A1CF7204AB2A900F8F9FD /* ios11-weather-scattered-snow-icon.png */,
+				AB8A1CF1204AB2A900F8F9FD /* ios11-weather-smoke-icon.png */,
+				AB8A1CEA204AB2A800F8F9FD /* ios11-weather-snow-icon.png */,
+				AB8A1CEC204AB2A800F8F9FD /* ios11-weather-snow-sleet-icon.png */,
+				AB8A1CEB204AB2A800F8F9FD /* ios11-weather-sunny-icon.png */,
+				AB8A1CF0204AB2A800F8F9FD /* ios11-weather-thunderstorm-icon.png */,
+				AB8A1D06204AB3B600F8F9FD /* no_icon.png */,
 			);
 			path = Images;
 			sourceTree = "<group>";
@@ -261,14 +297,26 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				ABD2F0E0204A06C200B86F35 /* sun.png in Resources */,
-				ABD2F0DE204A06C200B86F35 /* half_clouds.png in Resources */,
+				AB8A1D01204AB2A900F8F9FD /* ios11-weather-dust-icon.png in Resources */,
 				ABD2F0CB20495A5F00B86F35 /* Info.plist in Resources */,
+				AB8A1CF9204AB2A900F8F9FD /* ios11-weather-sunny-icon.png in Resources */,
+				AB8A1CFD204AB2A900F8F9FD /* ios11-weather-cloudy-icon.png in Resources */,
+				AB8A1CFF204AB2A900F8F9FD /* ios11-weather-smoke-icon.png in Resources */,
 				ABD2F0A12049298B00B86F35 /* LaunchScreen.storyboard in Resources */,
+				AB8A1D03204AB2A900F8F9FD /* ios11-weather-blowing-snow-icon.png in Resources */,
+				AB8A1D02204AB2A900F8F9FD /* ios11-weather-fog-icon.png in Resources */,
+				AB8A1D05204AB2A900F8F9FD /* ios11-weather-scattered-snow-icon.png in Resources */,
+				AB8A1CF8204AB2A900F8F9FD /* ios11-weather-snow-icon.png in Resources */,
 				ABD2F09E2049298B00B86F35 /* Assets.xcassets in Resources */,
+				AB8A1D00204AB2A900F8F9FD /* ios11-weather-heavy-rain-icon.png in Resources */,
+				AB8A1CFE204AB2A900F8F9FD /* ios11-weather-thunderstorm-icon.png in Resources */,
 				ABD2F0D92049D3D300B86F35 /* WeatherContentPage.xib in Resources */,
+				AB8A1CFB204AB2A900F8F9FD /* ios11-weather-hail-icon.png in Resources */,
+				AB8A1D07204AB3B700F8F9FD /* no_icon.png in Resources */,
+				AB8A1CFC204AB2A900F8F9FD /* ios11-weather-rain-icon.png in Resources */,
+				AB8A1D04204AB2A900F8F9FD /* ios11-weather-partly-sunny-icon.png in Resources */,
+				AB8A1CFA204AB2A900F8F9FD /* ios11-weather-snow-sleet-icon.png in Resources */,
 				ABD2F09C2049298B00B86F35 /* Main.storyboard in Resources */,
-				ABD2F0DF204A06C200B86F35 /* clouds.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

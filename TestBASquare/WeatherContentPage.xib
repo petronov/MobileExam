@@ -13,9 +13,9 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ContentViewController" customModule="TestBASquare">
             <connections>
                 <outlet property="cityNameLabel" destination="UII-Gt-urX" id="pNz-tD-QWw"/>
-                <outlet property="cloudinessImageView" destination="SaN-gM-YoL" id="zG5-ql-lSJ"/>
                 <outlet property="temperatureLabel" destination="75T-K1-nvY" id="hP7-vy-kA5"/>
                 <outlet property="view" destination="iN0-l3-epB" id="6qP-Jh-rae"/>
+                <outlet property="weatherDescriptionImageView" destination="SaN-gM-YoL" id="zG5-ql-lSJ"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
@@ -36,21 +36,21 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="SaN-gM-YoL" userLabel="Cloudiness Image">
-                    <rect key="frame" x="219" y="0.0" width="156" height="156"/>
+                    <rect key="frame" x="224" y="13" width="135" height="106"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="156" id="M2n-Ud-OYM"/>
-                        <constraint firstAttribute="width" constant="156" id="SwK-N7-XCx"/>
+                        <constraint firstAttribute="height" constant="106" id="M2n-Ud-OYM"/>
+                        <constraint firstAttribute="width" constant="135" id="SwK-N7-XCx"/>
                     </constraints>
                 </imageView>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstItem="SaN-gM-YoL" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="8SU-ff-4Vz"/>
+                <constraint firstItem="SaN-gM-YoL" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="13" id="8SU-ff-4Vz"/>
                 <constraint firstItem="75T-K1-nvY" firstAttribute="trailing" secondItem="vUN-kp-3ea" secondAttribute="trailing" id="DdP-fq-OP8"/>
                 <constraint firstItem="UII-Gt-urX" firstAttribute="top" secondItem="75T-K1-nvY" secondAttribute="bottom" constant="61" id="Kdx-yU-aQf"/>
                 <constraint firstItem="75T-K1-nvY" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="SqP-pr-72N"/>
                 <constraint firstItem="75T-K1-nvY" firstAttribute="centerY" secondItem="vUN-kp-3ea" secondAttribute="centerY" id="VGE-et-IW7"/>
-                <constraint firstItem="SaN-gM-YoL" firstAttribute="trailing" secondItem="vUN-kp-3ea" secondAttribute="trailing" id="XAR-2h-rzv"/>
+                <constraint firstItem="SaN-gM-YoL" firstAttribute="trailing" secondItem="vUN-kp-3ea" secondAttribute="trailing" constant="-16" id="XAR-2h-rzv"/>
                 <constraint firstItem="UII-Gt-urX" firstAttribute="trailing" secondItem="vUN-kp-3ea" secondAttribute="trailing" id="eFz-xD-gfj"/>
                 <constraint firstItem="UII-Gt-urX" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="oYu-N8-xnG"/>
             </constraints>

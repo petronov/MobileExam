@@ -63,10 +63,13 @@ class WeatherDataManager
                         
                         let cloudinessValue = Int(weatherItem!.cloudiness)
                         
+                        let weatherDescription = String(weatherItem!.descriptionStr)
+                        
                         let dictionary: [String: Any] = ["city": city,
                                                          "temperatureCelsiusStr": tempatureStr,
                                                          "temperatureCelsiusValue": tempatureValue,
-                                                         "cloudinessValue": cloudinessValue]
+                                                         "cloudinessValue": cloudinessValue,
+                                                         "weatherDescription": weatherDescription]
                         
                         NotificationCenter.default.post(name: Notification.Name(rawValue: WeatherDateNotification), object: nil, userInfo: dictionary)
                     }

@@ -23,18 +23,21 @@ public struct WeatherItem: BasicItem {
     
     //========================================================
     public let cloudiness: Int32
+    public let descriptionStr: String
     //========================================================
 
     init(currentTemp: Double,
          maxTemp: Double,
          minTemp: Double,
          //========================================================
-         cloudiness: Int32
+         cloudiness: Int32,
+         descriptionStr: String
          //========================================================
         )
     {
         //========================================================
         self.cloudiness = cloudiness
+        self.descriptionStr = descriptionStr
         //========================================================
         
         kelvin = (currentTemp, maxTemp, minTemp)
