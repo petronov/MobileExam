@@ -331,8 +331,6 @@ class WeatherViewController: UIViewController, UIPageViewControllerDataSource, U
             {
                 if let selectedCityName = self.citiesDataSource!.getCityName(for: index)
                 {
-                    citiesDataSource?.selectCityByName(selectedCityName)
-                    
                     for pageContentController in self.contentPagesVC
                         where pageContentController.cityName != nil &&
                               pageContentController.cityName! == selectedCityName
@@ -355,7 +353,13 @@ class WeatherViewController: UIViewController, UIPageViewControllerDataSource, U
         if completed
         {
             currentIndex = pendingIndex
-            if let index = currentIndex {
+            if let index = currentIndex
+            {
+                if let selectedCityName = self.citiesDataSource!.getCityName(for: index)
+                {
+                    citiesDataSource?.selectCityByName(selectedCityName)
+                }
+                
                 pageControl.currentPage = index
             }
         }
