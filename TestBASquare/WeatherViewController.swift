@@ -165,6 +165,7 @@ class WeatherViewController: UIViewController, UIPageViewControllerDataSource, U
             {
                 //debugPrint("tap outside")
                 self.view.removeFromSuperview()
+                self.removeFromParentViewController()
             }
         }
     }
